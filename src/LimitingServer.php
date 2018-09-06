@@ -147,9 +147,9 @@ class LimitingServer extends EventEmitter implements ServerInterface
         }
     }
 
-    public function close()
+    public function close($how = STREAM_SHUT_RDWR)
     {
-        $this->server->close();
+        $this->server->close($how);
     }
 
     /** @internal */

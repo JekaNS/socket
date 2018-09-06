@@ -139,13 +139,12 @@ interface ServerInterface extends EventEmitterInterface
     public function resume();
 
     /**
-     * Shuts down this listening socket
+     * Shuts down this listening socket using STREAM_SHUT_* flag
      *
-     * This will stop listening for new incoming connections on this socket.
+     * @see http://be2.php.net/manual/en/function.stream-socket-shutdown.php
      *
-     * Calling this method more than once on the same instance is a NO-OP.
-     *
+     * @param int $how
      * @return void
      */
-    public function close();
+    public function close($how = STREAM_SHUT_RDWR);
 }

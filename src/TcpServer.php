@@ -215,14 +215,14 @@ final class TcpServer extends EventEmitter implements ServerInterface
         $this->listening = true;
     }
 
-    public function close()
+    public function close($how = STREAM_SHUT_RDWR)
     {
         if (!is_resource($this->master)) {
             return;
         }
 
         $this->pause();
-        fclose($this->master);
+        stream_socket_shutdown($this->master, $how);
         $this->removeAllListeners();
     }
 

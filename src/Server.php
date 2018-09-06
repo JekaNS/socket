@@ -66,8 +66,8 @@ final class Server extends EventEmitter implements ServerInterface
         $this->server->resume();
     }
 
-    public function close()
+    public function close($how = STREAM_SHUT_RDWR)
     {
-        $this->server->close();
+        $this->server->close($how);
     }
 }

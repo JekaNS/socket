@@ -159,9 +159,9 @@ final class SecureServer extends EventEmitter implements ServerInterface
         $this->tcp->resume();
     }
 
-    public function close()
+    public function close($how = STREAM_SHUT_RDWR)
     {
-        return $this->tcp->close();
+        return $this->tcp->close($how);
     }
 
     /** @internal */
